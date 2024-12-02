@@ -1,14 +1,30 @@
+import { renderTask, renderErr, renderLoading, removeLoading } from "./render.js";
+const newTaskInput = document.getElementById("new-task-input");
+
+// Add new task
+export function handleAddTask(event) {
+  event.preventDefault();
+  const newTask = {
+    id: Date.now(),
+    title: newTaskInput.value,
+    completed: false,
+  };
+  renderTask(newTask);
+  newTaskInput.value = ""; // Clear the input field
+}
 // fetch.js
 
-import { renderTask, renderErr, renderLoading, removeLoading } from "./render.js";
-
+export function handleRemoveTasks() {
+    const tasks = document.querySelectorAll("li");
+    tasks.forEach((task) => task.remove());
+}
 // Fetch todos from the API
-export async function fetchTodos() {
+export function fetchTodos() {
   try {
     renderLoading("Loading...");
 
     // Simulate delay and fetch data
-    setTimeout(async () => {
+    setTimeout( async() => {
       const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5").catch((error) => {
         removeLoading();
         renderErr(error.message);

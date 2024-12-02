@@ -1,24 +1,16 @@
 // main.js
-
-import { fetchTodos } from "./fetch.js";
 import { renderTask } from "./render.js";
-
-// DOM Elements
+import { handleAddTask, fetchTodos, handleRemoveTasks } from "./event.js";
 const fetchTodosButton = document.getElementById("fetch-todos");
 const addTaskForm = document.getElementById("add-task-form");
-const newTaskInput = document.getElementById("new-task-input");
-
-// Add new task
-addTaskForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const newTask = {
-    id: Date.now(),
-    title: newTaskInput.value,
-    completed: false,
-  };
-  renderTask(newTask);
-  newTaskInput.value = ""; // Clear the input field
-});
-
-// Fetch todos when the button is clicked
+const removeTasks = document.getElementById("remove-tasks")
+// Attach event listeners
+addTaskForm.addEventListener("submit", handleAddTask);
 fetchTodosButton.addEventListener("click", fetchTodos);
+removeTasks.addEventListener("click", handleRemoveTasks);
+
+// Example: Remove listeners dynamically (only if needed later in your app)
+function cleanupListeners() {
+  addTaskForm.removeEventListener("submit", handleAddTask);
+  fetchTodosButton.removeEventListener("click", handleFetchTodos);
+}
