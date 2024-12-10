@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Login for task managements</title>
+    <link rel="stylesheet" href="./assets/css/auth.css">
 </head>
 <body>
-$END$
+<form id="login" method="POST" novalidate>
+    <h1>Login to your account</h1>
+
+    <input id="username" type="text" name="username" placeholder="Username" required />
+    <span class="error-message" id="username-error"></span>
+
+    <input id="email" type="email" name="email" placeholder="Email" required />
+    <span class="error-message" id="email-error"></span>
+
+    <input id="password" type="password" name="password" placeholder="Password" required />
+    <span class="error-message" id="password-error"></span>
+
+    <button type="submit">Submit</button>
+    <small>
+        If you don't have an account?
+        <a href="./auth.html">register</a>
+    </small>
+</form>
 </body>
 </html>

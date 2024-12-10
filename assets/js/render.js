@@ -1,7 +1,15 @@
 // render.js
 
 // DOM Elements
+import {deleteTask, toggleTask} from "./state.js";
+
 const taskList = document.getElementById("task-list");
+
+// Render all tasks
+export function renderTaskList(tasks) {
+  taskList.innerHTML = ""; // Clear the existing task list
+  tasks.forEach(task => renderTask(task)); // Render each task
+}
 
 // Render a single task
 export function renderTask(task) {
@@ -14,6 +22,7 @@ export function renderTask(task) {
   checkbox.checked = task.completed;
   checkbox.addEventListener("change", () => {
     li.classList.toggle("completed", checkbox.checked);
+    toggleTask(task.id)
   });
 
   // Task text
@@ -26,9 +35,8 @@ export function renderTask(task) {
   // Delete button
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", () => {
-    li.remove();
-  });
+  deleteButton.classList.add('delete-task');
+  deleteButton.addEventListener("click",() => deleteTask(task.id));
 
   // Append elements to list item
   li.appendChild(checkbox);
@@ -60,7 +68,7 @@ export function renderLoading(message) {
     loadingEl.style.color = "gray";
     loadingEl.id = "loading-message";
 
-    taskList.appendChild(loadingEl);
+    taskList.prepend(loadingEl);
   }
 }
 

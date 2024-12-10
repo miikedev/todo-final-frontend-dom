@@ -1,0 +1,92 @@
+/* auth.css */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f3f4f6; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+/* Form Container */
+form {
+    background-color: #ffffff; /* White background for form */
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 100%;
+    max-width: 400px; /* Responsive width */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between elements */
+}
+
+/* Input Fields */
+form input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #3b82f6; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); /* Subtle blue glow */
+}
+
+/* Button Styling */
+form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    background-color: #3b82f6; /* Blue background */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2563eb; /* Darker blue on hover */
+}
+
+form button:active {
+    background-color: #1d4ed8; /* Even darker blue on click */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form#auth {
+        padding: 15px 20px;
+    }
+
+    form#auth input, form#auth button {
+        font-size: 14px;
+    }
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff4d4f; /* Red color for errors */
+    font-size: 14px;
+    margin-top: 5px;
+    display: none; /* Initially hidden */
+}
+
+/* Add a red border only dynamically */
+input.invalid {
+    border-color: #ff4d4f; /* Highlight input with red border only when invalid */
+}

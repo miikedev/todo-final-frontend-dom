@@ -9,14 +9,14 @@ body {
     background-color: #f4f4f4;
   }
   
-  .app {
+  #app {
     width: 90%;
     max-width: 400px;
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
+    color: #212121;
   }
   
   h1 {
@@ -38,6 +38,7 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+      color: black;
   }
   
   .completed {
@@ -53,3 +54,78 @@ body {
   #error {
     color: red;
   }
+#add-task-form {
+    margin: 1rem 0;
+}
+ .add-task label {
+    font-size: .9rem;
+    font-weight: 500;
+     margin-bottom: .5rem;
+  }
+
+ .add-task {
+   display: flex;
+   flex-direction: column;
+ }
+
+ #search-container{
+     display: block;
+     gap: 1rem;
+ }
+
+/* Default Light Theme Styles */
+#app {
+    background-color: #ffffff;
+    color: #000000;
+}
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #dddddd;
+}
+
+input {
+    padding: .5rem 1rem;
+}
+/* styles.css */
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button.dark-mode {
+    background-color: white; /* Dark mode button background */
+    color: black; /* Light text color */
+}
+button.dark-mode:hover {
+    background-color: #aaaaaa;
+}
+
+button {
+    background-color: #dfdfdf; /* Default light mode button background */
+    color: #212121; /* Default dark mode text color */
+}
+
+button:hover {
+    background-color: #29292950;
+    color: white;
+}
+
+/* Dark Theme Styles */
+#app.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/*.task.dark-mode {*/
+/*    background-color: #1e1e1e;*/
+/*    border: 1px solid #333333;*/
+/*    color: #212121;*/
+/*}*/
+
+#light-icon,#dark-icon {
+    width: 1rem;
+    height: 1rem;
+    display: none;
+}
